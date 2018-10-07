@@ -163,7 +163,7 @@ Xvfb.prototype = {
         throw new Error('Display ' + display + ' is already in use and the "reuse" option is false.');
       }
     } else {
-      this._process = spawn('Xvfb', [ display ].concat(this._xvfb_args));
+      this._process = spawn(__dirname + '/bin/Xvfb', [ display ].concat(this._xvfb_args));
       this._process.stderr.on('data', function(data) {
         if (!this._silent) {
           process.stderr.write(data);
